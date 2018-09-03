@@ -650,7 +650,8 @@ function _filter-select-init-keybind() {
     if (( ret != 0 )); then
         bindkey -N filterselect
 
-        bindkey -M filterselect '^J' accept-line
+        # bindkey -M filterselect '^J' accept-line
+        bindkey -M filterselect '^L' accept-line
         bindkey -M filterselect '^M' accept-line
         bindkey -M filterselect '\e^J' accept-search
         bindkey -M filterselect '\e^M' accept-search
@@ -675,14 +676,16 @@ function _filter-select-init-keybind() {
         bindkey -M filterselect '^E' end-of-line
 
         bindkey -M filterselect '^W' backward-kill-word
-        bindkey -M filterselect '^K' kill-line
+        # bindkey -M filterselect '^K' kill-line
         bindkey -M filterselect '^U' kill-whole-line
 
         # move cursor down/up
         bindkey -M filterselect '^N' down-line-or-history
+        bindkey -M filterselect '^J' down-line-or-history
         bindkey -M filterselect '\e[B' down-line-or-history
         bindkey -M filterselect '\eOB' down-line-or-history
         bindkey -M filterselect '^P' up-line-or-history
+        bindkey -M filterselect '^K' up-line-or-history
         bindkey -M filterselect '\e[A' up-line-or-history
         bindkey -M filterselect '\eOA' up-line-or-history
 
